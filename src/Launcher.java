@@ -11,7 +11,36 @@ public class Launcher {
                 {
                     break;
                 }
-                System.out.print("Unknown command\n");
+                if (a.equals("fibo"))
+                {
+                    int nb = scanner.nextInt();
+                    if (nb == 0)
+                    {
+                        System.out.println("1");
+                    }
+                    else if (nb == 1)
+                    {
+                        System.out.println("1");
+                    }
+                    else if (nb > 1)
+                    {
+                        int f1 = 1;
+                        int f2 = 1;
+                        int nb2 = 0;
+                        for (int j = 2; j < nb ;j++)
+                        {
+                            nb2 = f1 + f2;
+                            f1 = f2;
+                            f2 = nb2; 
+                        }
+                        System.out.println(nb2);
+                    }
+                }
+                else 
+                {
+                    System.out.print("Unknown command\n");
+                }
+                
         }
     }
 }
