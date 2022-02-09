@@ -18,7 +18,7 @@ public class Launcher {
                     {
                         System.out.println("1");
                     }
-                    else if (nb == 1)
+                    else if (nb == 1 || nb == 2)
                     {
                         System.out.println("1");
                     }
