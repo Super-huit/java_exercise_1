@@ -13,6 +13,7 @@ public class Launcher {
                 }
                 else if (a.equals("fibo"))
                 {
+                    System.out.println("La Question");
                     int nb = scanner.nextInt();
                     if (nb == 0)
                     {
