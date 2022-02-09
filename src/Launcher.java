@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.nio.file.Files;
 public class Launcher {
     public static void  main(String[] args){
         System.out.print("Bonjour\n");
@@ -11,7 +11,7 @@ public class Launcher {
                 {
                     break;
                 }
-                if (a.equals("fibo"))
+                else if (a.equals("fibo"))
                 {
                     int nb = scanner.nextInt();
                     if (nb == 0)
@@ -35,6 +35,17 @@ public class Launcher {
                         }
                         System.out.println(nb2);
                     }
+                }
+                else if (a.equals("freq"))
+                {
+                    /*
+                    String path = scanner.nextLine();
+                    try {
+                        java.nio.file.Files.
+                    } catch (Exception e) {
+                        //TODO: handle exception
+                    }
+                    */
                 }
                 else 
                 {
