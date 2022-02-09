@@ -66,7 +66,13 @@ public class Launcher {
                                 .collect(toList()); // put it in a returned list
                         for(int i=0;i<3;i++)
                         {
-                            System.out.print(res.get(i)+" ");
+                            if (i != 2)
+                            {
+                                System.out.print(res.get(i)+" ");
+                            }else
+                            {
+                                System.out.print(res.get(i));
+                            }
                         }
                         System.out.println();
 
