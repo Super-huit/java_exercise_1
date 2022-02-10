@@ -7,21 +7,21 @@ public class Predict implements Command {
         private final String word;
         private final Map<String, Integer> occurences = new HashMap<>();
 
-        public Word(String word) {
-            this.word = word;
-        }
-
         public void putFollower(String w) {
             this.occurences.put(w, this.occurences.getOrDefault(w, 0) + 1);
+        }
+
+        public Word(String word) {
+            this.word = word;
         }
 
         public String predict() {
             if (occurences.isEmpty())
                 return null;
 
-            var i = Collections.max(occurences.values());
+            int i = Collections.max(occurences.values());
 
-            var list = this.occurences.keySet().stream().filter(k -> occurences.get(k).equals(i)).toList();
+            List<String> list = this.occurences.keySet().stream().filter(k -> occurences.get(k).equals(i)).toList();
 
             return list.get(0);
         }
@@ -47,12 +47,12 @@ public class Predict implements Command {
             return false;
 
         content = content.toLowerCase();
-        content = content.replaceAll("[.!?\\-'\"\t\n]", " ");
+        content = content.replaceAll("[,.!?\\-'\"\t\n]", " ");
         content = content.replaceAll(" {2}", " ");
 
         Map<String, Word> words = new HashMap<>();
 
-        var lastWord = Arrays.stream(content.split(" "))
+        String lastWord = Arrays.stream(content.split(" "))
                 .filter(s -> !s.isBlank())
                 .reduce("", (prev, next) -> {
                     if (!prev.isBlank()) {
@@ -65,16 +65,16 @@ public class Predict implements Command {
         words.putIfAbsent(lastWord, new Word(lastWord));
 
         System.out.println("Veuillez maintenant entrer un mot :");
-        var startWord = sc.nextLine();
+        String startWord = sc.nextLine();
         startWord = startWord.toLowerCase();
 
         if (!words.containsKey(startWord))
             System.err.println("Le mot n'est pas présent dans le texte !");
 
         else {
-            var sentence = new ArrayList<>(List.of(startWord));
+            List<String> sentence = new ArrayList<>(List.of(startWord));
             while (sentence.size() < 20) {
-                var nextWord = words.get(sentence.get(sentence.size() - 1)).predict();
+                String nextWord = words.get(sentence.get(sentence.size() - 1)).predict();
                 if (nextWord == null)
                     break;
                 sentence.add(nextWord);
