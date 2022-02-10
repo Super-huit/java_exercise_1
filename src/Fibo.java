@@ -18,7 +18,8 @@ public class Fibo implements Command{
     @Override
     public boolean run(Scanner scanner) {
         System.out.println("La Question");
-        int nb = scanner.nextInt();
+        String strNb = scanner.nextLine();
+        int nb = Integer.parseInt(strNb);
         if (nb == 0)
         {
             System.out.println("1");

@@ -10,6 +10,8 @@ import static java.util.stream.Collectors.toMap;
 public class Launcher{
     public static void main(String[] args)
     {
+        System.out.println("Bonjour");
+        Scanner scanner = new Scanner( System.in );
         List<Command> Listcommands;
         Listcommands = new ArrayList<>();
 
@@ -21,27 +23,29 @@ public class Launcher{
         Listcommands.add(freq);
         Listcommands.add(quit);
 
-        Boolean Quit_prog = false;
-        System.out.print("Bonjour\n");
-        while(Quit_prog == false)
+        boolean end = false;
+        String msg;
+        int checker = 0;
+
+        do
         {
-            Scanner scanner = new Scanner( System.in );
-            String in = scanner.nextLine();
-            Boolean Unknown = true;
+            checker = 0;
+            msg = scanner.nextLine();
+            //System.out.println("["+(int)msg.charAt(0)+"]");
             for(Command command : Listcommands)
             {
-                if (in.equals(command.name())){
-                    Quit_prog = command.run(scanner);
-                    Unknown = false;
+                if (msg.equals(command.name())){
+                    end = command.run(scanner);
+                    checker = 1;
                     break;
                 }
             }
-            if (Unknown == true)
+            if(checker == 0)
             {
-                System.out.print("Unknown command\n");
+                System.out.println("Unknown command");
             }
-
-        }
+        } while(!end);
+        scanner.close();
     }
 }
 /*
