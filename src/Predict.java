@@ -2,6 +2,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
+
 public class Predict implements Command {
     private static class Word {
         private final String word;
@@ -81,7 +82,7 @@ public class Predict implements Command {
                 sentence.add(nextWord);
             }
 
-            //System.out.println(String.join(" ", sentence));
+            System.out.println(String.join(" ", sentence));
         }
 
         System.out.println("the internet tend to using lorem ipsum is that a search for lorem ipsum is that a search for lorem");
