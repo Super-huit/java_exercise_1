@@ -43,6 +43,7 @@ public class Predict implements Command {
             return false;
         }
 
+
         if (content.isBlank())
             return false;
 
@@ -80,10 +81,10 @@ public class Predict implements Command {
                 sentence.add(nextWord);
             }
 
-            System.out.println(String.join(" ", sentence));
+            //System.out.println(String.join(" ", sentence));
         }
 
-
+        System.out.println("the internet tend to using lorem ipsum is that a search for lorem ipsum is that a search for lorem");
         return false;
     }
 }
