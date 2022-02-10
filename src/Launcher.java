@@ -7,6 +7,44 @@ import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
+public class Launcher{
+    public static void main(String[] args)
+    {
+        List<Command> Listcommands;
+        Listcommands = new ArrayList<>();
+
+        Fibo fibo = new Fibo();
+        Freq freq = new Freq();
+        Quit quit = new Quit();
+
+        Listcommands.add(fibo);
+        Listcommands.add(freq);
+        Listcommands.add(quit);
+
+        Boolean Quit_prog = false;
+        System.out.print("Bonjour\n");
+        while(Quit_prog == false)
+        {
+            Scanner scanner = new Scanner( System.in );
+            String in = scanner.nextLine();
+            Boolean Unknown = true;
+            for(Command command : Listcommands)
+            {
+                if (in.equals(command.name())){
+                    Quit_prog = command.run(scanner);
+                    Unknown = false;
+                    break;
+                }
+            }
+            if (Unknown == true)
+            {
+                System.out.print("Unknown command\n");
+            }
+
+        }
+    }
+}
+/*
 public class Launcher {
     public static void  main(String[] args){
         System.out.print("Bonjour\n");
@@ -90,3 +128,4 @@ public class Launcher {
         }
     }
 }
+*/
